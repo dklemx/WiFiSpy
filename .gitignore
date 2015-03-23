@@ -45,3 +45,4 @@ Temporary Items
 #Anti-Dox material
 *.cap
 *.exe
+*.pdb
