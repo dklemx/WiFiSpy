@@ -7,9 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WiFiSpy", "WiFiSpy\WiFiSpy.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpPcap", "SharpPcap\SharpPcap.csproj", "{24262E52-1304-4A25-8F73-A3B06E40592E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcapDotNet.Packets", "..\..\..\..\Desktop\PcapDotNet\src\PcapDotNet.Packets\PcapDotNet.Packets.csproj", "{8A184AF5-E46C-482C-81A3-76D8CE290104}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcapDotNet.Packets", "PcapDotNet\src\PcapDotNet.Packets\PcapDotNet.Packets.csproj", "{8A184AF5-E46C-482C-81A3-76D8CE290104}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcapDotNet.Base", "..\..\..\..\Desktop\PcapDotNet\src\PcapDotNet.Base\PcapDotNet.Base.csproj", "{83E805C9-4D29-4E34-A27E-5A78690FBD2B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcapDotNet.Base", "PcapDotNet\src\PcapDotNet.Base\PcapDotNet.Base.csproj", "{83E805C9-4D29-4E34-A27E-5A78690FBD2B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

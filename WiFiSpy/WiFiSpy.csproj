@@ -70,7 +70,7 @@
     <Compile Include="src\CapFile.cs" />
     <Compile Include="src\CapManager.cs" />
     <Compile Include="src\OuiParser.cs" />
-    <Compile Include="src\Packets\BeaconFreame.cs" />
+    <Compile Include="src\Packets\BeaconFrame.cs" />
     <Compile Include="src\Packets\DataFrame.cs" />
     <Compile Include="src\Packets\ProbePacket.cs" />
     <Compile Include="src\Station.cs" />
@@ -115,10 +115,6 @@
     <Folder Include="Controls\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\Desktop\PcapDotNet\src\PcapDotNet.Packets\PcapDotNet.Packets.csproj">
-      <Project>{8a184af5-e46c-482c-81a3-76d8ce290104}</Project>
-      <Name>PcapDotNet.Packets</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SharpPcap\SharpPcap.csproj">
       <Project>{24262e52-1304-4a25-8f73-a3b06e40592e}</Project>
       <Name>SharpPcap</Name>

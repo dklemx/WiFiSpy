@@ -8,8 +8,8 @@ namespace WiFiSpy.src
 {
     public class AccessPoint
     {
-        public BeaconFreame BeaconFrame { get; private set; }
-        private List<BeaconFreame> BeaconFrames { get; set; }
+        public BeaconFrame BeaconFrame { get; private set; }
+        private List<BeaconFrame> BeaconFrames { get; set; }
 
         public string SSID
         {
@@ -43,13 +43,13 @@ namespace WiFiSpy.src
             }
         }
 
-        public AccessPoint(BeaconFreame beaconFrame)
+        public AccessPoint(BeaconFrame beaconFrame)
         {
             this.BeaconFrame = beaconFrame;
-            this.BeaconFrames = new List<BeaconFreame>();
+            this.BeaconFrames = new List<BeaconFrame>();
         }
 
-        internal void AddBeaconFrame(BeaconFreame beaconFrame)
+        internal void AddBeaconFrame(BeaconFrame beaconFrame)
         {
             this.BeaconFrames.Add(beaconFrame);
         }

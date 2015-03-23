@@ -1,0 +1,103 @@
+﻿using System;
+using PcapDotNet.Base;
+
+namespace PcapDotNet.Packets.Dns
+{
+    /// <summary>
+    /// A base class for any resource data that contains a 16 bit unsigned integer followed by a domain name.
+    /// <pre>
+    /// +-----+--------+
+    /// | bit | 0-15   |
+    /// +-----+--------+
+    /// | 0   | Value  |
+    /// +-----+--------+
+    /// | 16  | Domain |
+    /// | ... |        |
+    /// +-----+--------+
+    /// </pre>
+    /// </summary>
+    public abstract class DnsResourceDataUShortDomainName : DnsResourceData, IEquatable<DnsResourceDataUShortDomainName>
+    {
+        private static class Offset
+        {
+            public const int Value = 0;
+            public const int DomainName = Value + sizeof(ushort);
+        }
+
+        private const int ConstantPartLength = Offset.DomainName;
+
+        /// <summary>
+        /// Two DnsResourceDataUShortDomainName are equal iff their of the same type and their ushort values and domain names are equal.
+        /// </summary>
+        public bool Equals(DnsResourceDataUShortDomainName other)
+        {
+            return other != null &&
+                   GetType().Equals(other.GetType()) &&
+                   Value.Equals(other.Value) &&
+                   DomainName.Equals(other.DomainName);
+        }
+
+        /// <summary>
+        /// Two DnsResourceDataUShortDomainName are equal iff their of the same type and their ushort values and domain names are equal.
+        /// </summary>
+        public sealed override bool Equals(object obj)
+        {
+            return Equals(obj as DnsResourceDataUShortDomainName);
+        }
+
+        /// <summary>
+        /// A hash code based on the type, ushort value and domain name.
+        /// </summary>
+        public sealed override int GetHashCode()
+        {
+            return Sequence.GetHashCode(GetType(), Value, DomainName);
+        }
+
+        internal DnsResourceDataUShortDomainName(ushort value, DnsDomainName domainName)
+        {
+            Value = value;
+            DomainName = domainName;
+        }
+
+        internal ushort Value { get; private set; }
+
+        internal DnsDomainName DomainName { get; private set; }
+
+        internal override int GetLength(DnsDomainNameCompressionData compressionData, int offsetInDns)
+        {
+            return ConstantPartLength +
+                   DomainName.GetLength(compressionData, offsetInDns);
+        }
+
+        internal override int WriteData(byte[] buffer, int dnsOffset, int offsetInDns, DnsDomainNameCompressionData compressionData)
+        {
+            buffer.Write(dnsOffset + offsetInDns + Offset.Value, Value, Endianity.Big);
+            int numBytesWritten = DomainName.Write(buffer, dnsOffset, compressionData, offsetInDns + Offset.DomainName);
+
+            return ConstantPartLength + numBytesWritten;
+        }
+
+        internal static bool TryRead(out ushort value, out DnsDomainName domainName,
+                                     DnsDatagram dns, int offsetInDns, int length)
+        {
+            if (length < ConstantPartLength)
+            {
+                value = 0;
+                domainName = null;
+                return false;
+            }
+            value = dns.ReadUShort(offsetInDns + Offset.Value, Endianity.Big);
+            length -= ConstantPartLength;
+
+            int domainNameLength;
+            if (!DnsDomainName.TryParse(dns, offsetInDns + Offset.DomainName, length, out domainName, out domainNameLength))
+                return false;
+            length -= domainNameLength;
+
+            if (length != 0)
+                return false;
+
+            return true;
+        }
+    }
+}

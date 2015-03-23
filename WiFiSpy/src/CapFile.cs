@@ -11,13 +11,13 @@ namespace WiFiSpy.src
 {
     public class CapFile
     {
-        private List<BeaconFreame> _beacons;
+        private List<BeaconFrame> _beacons;
         private List<AccessPoint> _accessPoints;
         private SortedList<string, AccessPoint[]> _APExtenders;
         private List<Station> _stations;
         private List<DataFrame> _dataFrames;
 
-        public BeaconFreame[] Beacons
+        public BeaconFrame[] Beacons
         {
             get
             {
@@ -100,7 +100,7 @@ namespace WiFiSpy.src
                 return;
             }
 
-            _beacons = new List<BeaconFreame>();
+            _beacons = new List<BeaconFrame>();
             _accessPoints = new List<AccessPoint>();
             _stations = new List<Station>();
             _dataFrames = new List<DataFrame>();
@@ -136,7 +136,7 @@ namespace WiFiSpy.src
                 
                 if (beacon != null)
                 {
-                    BeaconFreame beaconFrame = new BeaconFreame(beacon, e.Packet.Timeval.Date);
+                    BeaconFrame beaconFrame = new BeaconFrame(beacon, e.Packet.Timeval.Date);
                     _beacons.Add(beaconFrame);
 
                     //check for APs with this Mac Address

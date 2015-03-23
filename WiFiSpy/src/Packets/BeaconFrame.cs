@@ -8,7 +8,7 @@ using System.Text;
 
 namespace WiFiSpy.src.Packets
 {
-    public class BeaconFreame
+    public class BeaconFrame
     {
         public string Manufacturer { get; private set; }
         public string SSID { get; private set; }
@@ -29,7 +29,7 @@ namespace WiFiSpy.src.Packets
 
         private PacketDotNet.Ieee80211.BeaconFrame Frame;
 
-        public BeaconFreame(PacketDotNet.Ieee80211.BeaconFrame frame, DateTime TimeStamp)
+        public BeaconFrame(PacketDotNet.Ieee80211.BeaconFrame frame, DateTime TimeStamp)
         {
             this.Frame = frame;
             this.Manufacturer = OuiParser.GetOuiByMac(frame.SourceAddress.GetAddressBytes());

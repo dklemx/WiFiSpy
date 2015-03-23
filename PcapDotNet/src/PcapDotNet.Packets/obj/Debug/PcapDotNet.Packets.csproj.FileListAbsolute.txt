@@ -1,0 +1,16 @@
+C:\Users\AnguisCaptor\Desktop\PcapDotNet\src\PcapDotNet.Packets\obj\Debug\PcapDotNet.Packets.csprojResolveAssemblyReference.cache
+C:\Users\AnguisCaptor\Desktop\PcapDotNet\bin\Debug\PcapDotNet.Packets.XML
+C:\Users\AnguisCaptor\Desktop\PcapDotNet\bin\Debug\PcapDotNet.Packets.dll
+C:\Users\AnguisCaptor\Desktop\PcapDotNet\bin\Debug\PcapDotNet.Packets.pdb
+C:\Users\AnguisCaptor\Desktop\PcapDotNet\bin\Debug\PcapDotNet.Packets.dll.CodeAnalysisLog.xml
+C:\Users\AnguisCaptor\Desktop\PcapDotNet\bin\Debug\PcapDotNet.Packets.dll.lastcodeanalysissucceeded
+C:\Users\AnguisCaptor\Desktop\PcapDotNet\src\PcapDotNet.Packets\obj\Debug\PcapDotNet.Packets.dll
+C:\Users\AnguisCaptor\Desktop\PcapDotNet\src\PcapDotNet.Packets\obj\Debug\PcapDotNet.Packets.pdb
+C:\Users\AnguisCaptor\Documents\GitHub\WiFiSpy\PcapDotNet\bin\Debug\PcapDotNet.Packets.XML
+C:\Users\AnguisCaptor\Documents\GitHub\WiFiSpy\PcapDotNet\bin\Debug\PcapDotNet.Packets.dll
+C:\Users\AnguisCaptor\Documents\GitHub\WiFiSpy\PcapDotNet\bin\Debug\PcapDotNet.Packets.pdb
+C:\Users\AnguisCaptor\Documents\GitHub\WiFiSpy\PcapDotNet\bin\Debug\PcapDotNet.Packets.dll.CodeAnalysisLog.xml
+C:\Users\AnguisCaptor\Documents\GitHub\WiFiSpy\PcapDotNet\bin\Debug\PcapDotNet.Packets.dll.lastcodeanalysissucceeded
+C:\Users\AnguisCaptor\Documents\GitHub\WiFiSpy\PcapDotNet\src\PcapDotNet.Packets\obj\Debug\PcapDotNet.Packets.csprojResolveAssemblyReference.cache
+C:\Users\AnguisCaptor\Documents\GitHub\WiFiSpy\PcapDotNet\src\PcapDotNet.Packets\obj\Debug\PcapDotNet.Packets.dll
+C:\Users\AnguisCaptor\Documents\GitHub\WiFiSpy\PcapDotNet\src\PcapDotNet.Packets\obj\Debug\PcapDotNet.Packets.pdb

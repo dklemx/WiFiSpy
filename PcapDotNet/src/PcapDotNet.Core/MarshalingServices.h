@@ -1,0 +1,20 @@
+#pragma once
+
+#include <string>
+
+namespace PcapDotNet { namespace Core 
+{
+    private ref class MarshalingServices
+    {
+    public:
+        static std::string ManagedToUnmanagedString(System::String^ managedString);
+
+        static std::wstring ManagedToUnmanagedWideString(System::String^ managedString);
+
+        static array<System::Byte>^ UnmanagedToManagedByteArray(const unsigned char* unmanagedByteArray, int offset, int count);
+
+    private:
+        [System::Diagnostics::DebuggerNonUserCode]
+        MarshalingServices(){}
+    };
+}}
