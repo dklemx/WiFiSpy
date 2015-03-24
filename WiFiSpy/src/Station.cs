@@ -105,7 +105,6 @@ namespace WiFiSpy.src
                 if (IsMacDevice)
                     return "Mac OSX";
 
-
                 //If it's unknown, let's look at the mac address rather then relying on HTTP Traffic
 
                 if (Manufacturer.ToLower().Contains("apple"))
@@ -118,6 +117,9 @@ namespace WiFiSpy.src
 
                 if (Manufacturer.ToLower().Contains("nintendo"))
                     return "Nintendo Console";
+
+                if (Manufacturer.ToLower().Contains("nvidia"))
+                    return "NVidia Shield";
 
 
                 return "";

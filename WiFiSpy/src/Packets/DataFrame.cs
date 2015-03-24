@@ -9,6 +9,8 @@ namespace WiFiSpy.src.Packets
     {
         public PacketDotNet.Ieee80211.QosDataFrame Frame { get; private set; }
         public DateTime TimeStamp { get; private set; }
+        private int PayloadOffset;
+        private int PayloadLen;
 
         public byte[] SourceMacAddress
         {
@@ -66,8 +68,16 @@ namespace WiFiSpy.src.Packets
 
         public byte[] Payload
         {
-            get;
-            private set;
+            get
+            {
+                if (PayloadOffset > 0 && PayloadLen > 0)
+                {
+                    byte[] ret = new byte[PayloadLen];
+                    Array.Copy(Frame.Bytes, PayloadOffset, ret, 0, ret.Length);
+                    return ret;
+                }
+                return new byte[0];
+            }
         }
 
         public DataFrame(PacketDotNet.Ieee80211.QosDataFrame DataFrame, DateTime TimeStamp)
@@ -114,19 +124,9 @@ namespace WiFiSpy.src.Packets
                         ReadOffset += 8; //UDP header
                     }
 
-                    int PayloadLen = PacketData.Length - ReadOffset;
-
-                    if (PayloadLen > 0)
-                    {
-                        //this.Payload = new byte[PayloadLen];
-                        //Array.Copy(PacketData, ReadOffset, Payload, 0, Payload.Length);
-                    }
+                    this.PayloadLen = PacketData.Length - ReadOffset;
+                    this.PayloadOffset = ReadOffset;
                 }
-            }
-
-            if (Payload == null)
-            {
-                Payload = new byte[0];
             }
 
             if (String.IsNullOrEmpty(SourceIp) || String.IsNullOrEmpty(DestIp))
