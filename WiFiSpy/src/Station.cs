@@ -12,6 +12,7 @@ namespace WiFiSpy.src
 
         private List<ProbePacket> _probes;
         private List<DataFrame> _payloadTraffic;
+        private string _deviceVersion = null;
 
         public ProbePacket[] Probes
         {
@@ -126,7 +127,66 @@ namespace WiFiSpy.src
             }
         }
 
+        public string DeviceVersion
+        {
+            get
+            {
+                if (_deviceVersion != null)
+                    return _deviceVersion;
+
+                string agent = GetDeviceUserAgent(null);
+
+                if(agent.ToLower().Contains("android") && agent.Contains(";") && agent.Contains("("))
+                {
+                    //just a simple guess that this will give us the: model + android version
+                    _deviceVersion = agent.Substring(agent.IndexOf('('));
+                }
+                else
+                {
+                    _deviceVersion = "";
+                }
+
+                return _deviceVersion;
+            }
+        }
+
         public string Manufacturer {get; private set; }
+
+        public DateTime LastSeenDate
+        {
+            get
+            {
+                DateTime LastSeenDate = new DateTime();
+
+                for (int i = 0; i < Probes.Count(); i++)
+                {
+                    if (Probes[i].TimeStamp > LastSeenDate)
+                    {
+                        LastSeenDate = Probes[i].TimeStamp;
+                    }
+                }
+                return LastSeenDate;
+            }
+        }
+
+        public string ProbeNames
+        {
+            get
+            {
+                List<string> TempProbeNames = new List<string>();
+                string ProbeNames = "";
+
+                for (int i = 0; i < Probes.Count(); i++)
+                {
+                    if (!String.IsNullOrEmpty(Probes[i].SSID) && !TempProbeNames.Contains(Probes[i].SSID))
+                    {
+                        ProbeNames += Probes[i].SSID + ",   ";
+                        TempProbeNames.Add(Probes[i].SSID);
+                    }
+                }
+                return ProbeNames;
+            }
+        }
 
         public Station(ProbePacket InitialProbe)
         {
@@ -170,7 +230,14 @@ namespace WiFiSpy.src
                             {
                                 if (temp[i].ToLower().StartsWith("user-agent:"))
                                 {
-                                    if (temp[i].ToLower().Contains(contains))
+                                    if(contains != null)
+                                    {
+                                        if (temp[i].ToLower().Contains(contains))
+                                        {
+                                            return temp[i];
+                                        }
+                                    }
+                                    else
                                     {
                                         return temp[i];
                                     }

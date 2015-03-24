@@ -88,6 +88,8 @@
             this.StationHttpLocList = new System.Windows.Forms.ListView();
             this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -128,7 +130,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1073, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1349, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -163,7 +165,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 24);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1073, 580);
+            this.tabControl1.Size = new System.Drawing.Size(1349, 612);
             this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
@@ -172,7 +174,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1065, 554);
+            this.tabPage1.Size = new System.Drawing.Size(1341, 586);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Overal View";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -191,8 +193,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1059, 548);
-            this.splitContainer1.SplitterDistance = 271;
+            this.splitContainer1.Size = new System.Drawing.Size(1335, 580);
+            this.splitContainer1.SplitterDistance = 286;
             this.splitContainer1.TabIndex = 5;
             // 
             // splitContainer3
@@ -208,8 +210,8 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.groupBox3);
-            this.splitContainer3.Size = new System.Drawing.Size(1059, 271);
-            this.splitContainer3.SplitterDistance = 525;
+            this.splitContainer3.Size = new System.Drawing.Size(1335, 286);
+            this.splitContainer3.SplitterDistance = 824;
             this.splitContainer3.TabIndex = 0;
             // 
             // groupBox2
@@ -218,7 +220,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(525, 271);
+            this.groupBox2.Size = new System.Drawing.Size(824, 286);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Hourly Overview";
@@ -237,7 +239,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.AllHourlyChart.Series.Add(series1);
-            this.AllHourlyChart.Size = new System.Drawing.Size(519, 252);
+            this.AllHourlyChart.Size = new System.Drawing.Size(818, 267);
             this.AllHourlyChart.TabIndex = 0;
             this.AllHourlyChart.Text = "chart1";
             // 
@@ -247,7 +249,7 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(530, 271);
+            this.groupBox3.Size = new System.Drawing.Size(507, 286);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "AccessPoint Overview";
@@ -266,7 +268,7 @@
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             this.APInfoPieChart.Series.Add(series2);
-            this.APInfoPieChart.Size = new System.Drawing.Size(524, 252);
+            this.APInfoPieChart.Size = new System.Drawing.Size(501, 267);
             this.APInfoPieChart.TabIndex = 1;
             this.APInfoPieChart.Text = "chart2";
             // 
@@ -283,8 +285,8 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.groupBox4);
-            this.splitContainer2.Size = new System.Drawing.Size(1059, 273);
-            this.splitContainer2.SplitterDistance = 525;
+            this.splitContainer2.Size = new System.Drawing.Size(1335, 290);
+            this.splitContainer2.SplitterDistance = 825;
             this.splitContainer2.TabIndex = 0;
             // 
             // StationWeekOverviewBox
@@ -293,7 +295,7 @@
             this.StationWeekOverviewBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.StationWeekOverviewBox.Location = new System.Drawing.Point(0, 0);
             this.StationWeekOverviewBox.Name = "StationWeekOverviewBox";
-            this.StationWeekOverviewBox.Size = new System.Drawing.Size(525, 273);
+            this.StationWeekOverviewBox.Size = new System.Drawing.Size(825, 290);
             this.StationWeekOverviewBox.TabIndex = 1;
             this.StationWeekOverviewBox.TabStop = false;
             this.StationWeekOverviewBox.Text = "Stations week overview";
@@ -312,7 +314,7 @@
             series3.Legend = "Legend1";
             series3.Name = "Series1";
             this.WeekStationOverviewChart.Series.Add(series3);
-            this.WeekStationOverviewChart.Size = new System.Drawing.Size(519, 254);
+            this.WeekStationOverviewChart.Size = new System.Drawing.Size(819, 271);
             this.WeekStationOverviewChart.TabIndex = 1;
             this.WeekStationOverviewChart.Text = "chart4";
             // 
@@ -322,7 +324,7 @@
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(0, 0);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(530, 273);
+            this.groupBox4.Size = new System.Drawing.Size(506, 290);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Traffic Overview";
@@ -341,7 +343,7 @@
             series4.Legend = "Legend1";
             series4.Name = "Series1";
             this.TrafficPieChart.Series.Add(series4);
-            this.TrafficPieChart.Size = new System.Drawing.Size(524, 254);
+            this.TrafficPieChart.Size = new System.Drawing.Size(500, 271);
             this.TrafficPieChart.TabIndex = 1;
             this.TrafficPieChart.Text = "chart3";
             // 
@@ -351,7 +353,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1065, 554);
+            this.tabPage2.Size = new System.Drawing.Size(1341, 586);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Stations";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -371,8 +373,8 @@
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.Controls.Add(this.tabControl2);
-            this.splitContainer4.Size = new System.Drawing.Size(1059, 548);
-            this.splitContainer4.SplitterDistance = 274;
+            this.splitContainer4.Size = new System.Drawing.Size(1335, 580);
+            this.splitContainer4.SplitterDistance = 290;
             this.splitContainer4.TabIndex = 1;
             // 
             // panel1
@@ -385,14 +387,14 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1059, 29);
+            this.panel1.Size = new System.Drawing.Size(1335, 29);
             this.panel1.TabIndex = 1;
             // 
             // cbOnlyKnownDevice
             // 
             this.cbOnlyKnownDevice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbOnlyKnownDevice.AutoSize = true;
-            this.cbOnlyKnownDevice.Location = new System.Drawing.Point(403, 8);
+            this.cbOnlyKnownDevice.Location = new System.Drawing.Point(679, 8);
             this.cbOnlyKnownDevice.Name = "cbOnlyKnownDevice";
             this.cbOnlyKnownDevice.Size = new System.Drawing.Size(177, 17);
             this.cbOnlyKnownDevice.TabIndex = 4;
@@ -403,7 +405,7 @@
             // 
             this.cbStationContainsHTTP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbStationContainsHTTP.AutoSize = true;
-            this.cbStationContainsHTTP.Location = new System.Drawing.Point(586, 7);
+            this.cbStationContainsHTTP.Location = new System.Drawing.Point(862, 7);
             this.cbStationContainsHTTP.Name = "cbStationContainsHTTP";
             this.cbStationContainsHTTP.Size = new System.Drawing.Size(152, 17);
             this.cbStationContainsHTTP.TabIndex = 3;
@@ -413,7 +415,7 @@
             // btnApplyStationFilter
             // 
             this.btnApplyStationFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnApplyStationFilter.Location = new System.Drawing.Point(979, 4);
+            this.btnApplyStationFilter.Location = new System.Drawing.Point(1255, 4);
             this.btnApplyStationFilter.Name = "btnApplyStationFilter";
             this.btnApplyStationFilter.Size = new System.Drawing.Size(75, 23);
             this.btnApplyStationFilter.TabIndex = 2;
@@ -424,7 +426,7 @@
             // txtProbeFilter
             // 
             this.txtProbeFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtProbeFilter.Location = new System.Drawing.Point(827, 6);
+            this.txtProbeFilter.Location = new System.Drawing.Point(1103, 6);
             this.txtProbeFilter.Name = "txtProbeFilter";
             this.txtProbeFilter.Size = new System.Drawing.Size(146, 20);
             this.txtProbeFilter.TabIndex = 1;
@@ -433,7 +435,7 @@
             // 
             this.cbProbeFilter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbProbeFilter.AutoSize = true;
-            this.cbProbeFilter.Location = new System.Drawing.Point(744, 8);
+            this.cbProbeFilter.Location = new System.Drawing.Point(1020, 8);
             this.cbProbeFilter.Name = "cbProbeFilter";
             this.cbProbeFilter.Size = new System.Drawing.Size(79, 17);
             this.cbProbeFilter.TabIndex = 0;
@@ -451,12 +453,14 @@
             this.columnHeader3,
             this.columnHeader10,
             this.columnHeader4,
-            this.columnHeader13});
+            this.columnHeader13,
+            this.columnHeader17,
+            this.columnHeader16});
             this.StationList.FullRowSelect = true;
             this.StationList.GridLines = true;
             this.StationList.Location = new System.Drawing.Point(0, 30);
             this.StationList.Name = "StationList";
-            this.StationList.Size = new System.Drawing.Size(1059, 241);
+            this.StationList.Size = new System.Drawing.Size(1335, 257);
             this.StationList.TabIndex = 0;
             this.StationList.UseCompatibleStateImageBehavior = false;
             this.StationList.View = System.Windows.Forms.View.Details;
@@ -490,6 +494,7 @@
             // columnHeader13
             // 
             this.columnHeader13.Text = "Device Type";
+            this.columnHeader13.Width = 92;
             // 
             // tabControl2
             // 
@@ -500,7 +505,7 @@
             this.tabControl2.Location = new System.Drawing.Point(0, 0);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(1059, 270);
+            this.tabControl2.Size = new System.Drawing.Size(1335, 286);
             this.tabControl2.TabIndex = 0;
             // 
             // tabPage4
@@ -508,7 +513,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1051, 244);
+            this.tabPage4.Size = new System.Drawing.Size(1327, 260);
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "Information";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -614,11 +619,21 @@
             this.columnHeader15.Text = "URL";
             this.columnHeader15.Width = 691;
             // 
+            // columnHeader16
+            // 
+            this.columnHeader16.Text = "Last Seen";
+            this.columnHeader16.Width = 120;
+            // 
+            // columnHeader17
+            // 
+            this.columnHeader17.Text = "Device Version";
+            this.columnHeader17.Width = 92;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1073, 604);
+            this.ClientSize = new System.Drawing.Size(1349, 636);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -713,6 +728,8 @@
         private System.Windows.Forms.ListView StationHttpLocList;
         private System.Windows.Forms.ColumnHeader columnHeader14;
         private System.Windows.Forms.ColumnHeader columnHeader15;
+        private System.Windows.Forms.ColumnHeader columnHeader16;
+        private System.Windows.Forms.ColumnHeader columnHeader17;
     }
 }
 

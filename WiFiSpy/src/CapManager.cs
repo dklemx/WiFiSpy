@@ -31,6 +31,16 @@ namespace WiFiSpy.src
                         {
                             Station _station = StationMacs[station.SourceMacAddressStr];
 
+                            //copy the probes from other cap files
+                            foreach (ProbePacket probe in station.Probes)
+                            {
+                                if (_station.DataFrames.FirstOrDefault(o => o.TimeStamp.Ticks == probe.TimeStamp.Ticks) == null)
+                                {
+                                    _station.AddProbe(probe);
+                                }
+                            }
+
+                            //copy the data frames from other cap files
                             foreach(DataFrame frame in station.DataFrames)
                             {
                                 if(_station.DataFrames.FirstOrDefault(o => o.TimeStamp.Ticks == frame.TimeStamp.Ticks) == null)

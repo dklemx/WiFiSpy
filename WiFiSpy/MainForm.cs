@@ -146,32 +146,25 @@ namespace WiFiSpy
                 stations = TempStations.ToArray();
             }
 
+            List<ListViewItem> ListItems = new List<ListViewItem>();
             foreach(Station station in stations)
             {
-                List<string> TempProbeNames = new List<string>();
-                string ProbeNames = "";
-
-                for(int i = 0; i < station.Probes.Count(); i++)
-                {
-                    if(!String.IsNullOrEmpty(station.Probes[i].SSID) && !TempProbeNames.Contains(station.Probes[i].SSID))
-                    {
-                        ProbeNames += station.Probes[i].SSID + ",   ";
-                        TempProbeNames.Add(station.Probes[i].SSID);
-                    }
-                }
-
                 ListViewItem item = new ListViewItem(new string[]
                 {
                     station.SourceMacAddressStr,
                     station.Manufacturer,
                     station.Probes.Count().ToString(),
                     station.DataFrames.Count().ToString(),
-                    ProbeNames,
-                    station.DeviceTypeStr
+                    station.ProbeNames,
+                    station.DeviceTypeStr,
+                    station.DeviceVersion,
+                    station.LastSeenDate.ToString("dd-MM-yyyy HH:mm:ss")
                 });
                 item.Tag = station;
-                StationList.Items.Add(item);
+                //StationList.Items.Add(item);
+                ListItems.Add(item);
             }
+            StationList.Items.AddRange(ListItems.OrderByDescending(o => (o.Tag as Station).LastSeenDate).ToArray());
         }
 
         private void FillHourlyChart()
