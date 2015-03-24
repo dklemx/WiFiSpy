@@ -163,7 +163,7 @@ namespace WiFiSpy
                 ListViewItem item = new ListViewItem(new string[]
                 {
                     station.SourceMacAddressStr,
-                    station.InitialProbe.VendorSpecificManufacturer,
+                    station.Manufacturer,
                     station.Probes.Count().ToString(),
                     station.DataFrames.Count().ToString(),
                     ProbeNames,

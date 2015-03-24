@@ -25,15 +25,13 @@ namespace WiFiSpy.src
                 {
                     if (line.Contains("(hex)"))
                     {
-                        byte FirstByte = 0;
-                        byte SecondByte = 0;
-                        byte ThirdByte = 0;
-                        string Name = line.Substring(20);
-
-                        if (byte.TryParse(line.Substring(2, 2), out FirstByte) &&
-                            byte.TryParse(line.Substring(5, 2), out SecondByte) &&
-                            byte.TryParse(line.Substring(8, 2), out ThirdByte))
+                        try
                         {
+                            byte FirstByte = Convert.ToByte(line.Substring(2, 2), 16);
+                            byte SecondByte = Convert.ToByte(line.Substring(5, 2), 16);
+                            byte ThirdByte = Convert.ToByte(line.Substring(8, 2), 16);
+                            string Name = line.Substring(20);
+
                             int IntAddr = FirstByte | SecondByte << 8 | ThirdByte << 16;
 
                             if (!OuiNames.ContainsKey(IntAddr))
@@ -41,6 +39,7 @@ namespace WiFiSpy.src
                                 OuiNames.Add(IntAddr, Name);
                             }
                         }
+                        catch { }
                     }
                 }
             }

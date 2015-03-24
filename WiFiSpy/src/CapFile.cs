@@ -12,9 +12,9 @@ namespace WiFiSpy.src
     public class CapFile
     {
         private List<BeaconFrame> _beacons;
-        private List<AccessPoint> _accessPoints;
+        private SortedList<long, AccessPoint> _accessPoints;
         private SortedList<string, AccessPoint[]> _APExtenders;
-        private List<Station> _stations;
+        private SortedList<long, Station> _stations;
         private List<DataFrame> _dataFrames;
 
         public BeaconFrame[] Beacons
@@ -29,14 +29,14 @@ namespace WiFiSpy.src
         {
             get
             {
-                return _accessPoints.ToArray();
+                return _accessPoints.Values.ToArray();
             }
         }
         public Station[] Stations
         {
             get
             {
-                return _stations.ToArray();
+                return _stations.Values.ToArray();
             }
         }
         public DataFrame[] DataFrames
@@ -56,7 +56,7 @@ namespace WiFiSpy.src
 
                 SortedList<string, List<AccessPoint>> extenders = new SortedList<string, List<AccessPoint>>();
 
-                foreach (AccessPoint AP in _accessPoints)
+                foreach (AccessPoint AP in _accessPoints.Values)
                 {
                     if (!AP.BeaconFrame.IsHidden)
                     {
@@ -101,8 +101,8 @@ namespace WiFiSpy.src
             }
 
             _beacons = new List<BeaconFrame>();
-            _accessPoints = new List<AccessPoint>();
-            _stations = new List<Station>();
+            _accessPoints = new SortedList<long, AccessPoint>();
+            _stations = new SortedList<long, Station>();
             _dataFrames = new List<DataFrame>();
 
             device.OnPacketArrival += new PacketArrivalEventHandler(device_OnPacketArrival);
@@ -110,13 +110,25 @@ namespace WiFiSpy.src
             device.Close();
 
             //link all the DataFrames to the Stations
-            foreach (Station station in _stations)
+            foreach (Station station in _stations.Values)
             {
-                foreach(DataFrame frame in _dataFrames.Where(o => o.SourceMacAddressStr == station.SourceMacAddressStr || o.TargetMacAddressStr == station.SourceMacAddressStr))
+                long MacSourceAddrNumber = MacToLong(station.SourceMacAddress);
+
+                for(int i = 0; i < _dataFrames.Count; i++)
                 {
-                    station.AddDataFrame(frame);
+                    if(_dataFrames[i].MacSourceAddressLong == MacSourceAddrNumber || _dataFrames[i].MacTargetAddressLong == MacSourceAddrNumber)
+                    {
+                        station.AddDataFrame(_dataFrames[i]);
+                    }
                 }
             }
+        }
+
+        internal static long MacToLong(byte[] MacAddress)
+        {
+            byte[] MacAddrTemp = new byte[8];
+            Array.Copy(MacAddress, MacAddrTemp, 6);
+            return BitConverter.ToInt64(MacAddrTemp, 0);
         }
 
         int packetsProcessed = 0;
@@ -139,25 +151,29 @@ namespace WiFiSpy.src
                     BeaconFrame beaconFrame = new BeaconFrame(beacon, e.Packet.Timeval.Date);
                     _beacons.Add(beaconFrame);
 
-                    //check for APs with this Mac Address
-                    AccessPoint AP = AccessPoints.FirstOrDefault(o => o.MacAddress.Equals(beaconFrame.MacAddressStr));
+                    long MacAddrNumber = MacToLong(beaconFrame.MacAddress);
 
-                    if (AP == null)
+                    //check for APs with this Mac Address
+                    AccessPoint AP = null;
+
+                    if (!_accessPoints.TryGetValue(MacAddrNumber, out AP))
                     {
                         AP = new AccessPoint(beaconFrame);
-                        _accessPoints.Add(AP);
+                        _accessPoints.Add(MacAddrNumber, AP);
                     }
                     AP.AddBeaconFrame(beaconFrame);
                 }
                 else if (probeRequest != null)
                 {
                     ProbePacket probe = new ProbePacket(probeRequest, e.Packet.Timeval.Date);
-                    Station station = Stations.FirstOrDefault(o => o.SourceMacAddressStr.Equals(probe.SourceMacAddressStr));
+                    Station station = null;
 
-                    if (station == null)
+                    long MacAddrNumber = MacToLong(probe.SourceMacAddress);
+
+                    if (!_stations.TryGetValue(MacAddrNumber, out station))
                     {
                         station = new Station(probe);
-                        _stations.Add(station);
+                        _stations.Add(MacAddrNumber, station);
                     }
 
                     station.AddProbe(probe);
@@ -165,7 +181,12 @@ namespace WiFiSpy.src
                 else if (DataFrame != null)
                 {
                     DataFrame _dataFrame = new Packets.DataFrame(DataFrame, e.Packet.Timeval.Date);
-                    _dataFrames.Add(_dataFrame);
+
+                    //invalid packets are useless, probably encrypted
+                    if(_dataFrame.IsValidPacket)
+                    {
+                        _dataFrames.Add(_dataFrame);
+                    }
                 }
                 else if (DeAuthFrame != null)
                 {

@@ -105,16 +105,33 @@ namespace WiFiSpy.src
                 if (IsMacDevice)
                     return "Mac OSX";
 
+
+                //If it's unknown, let's look at the mac address rather then relying on HTTP Traffic
+
+                if (Manufacturer.ToLower().Contains("apple"))
+                    return "Apple";
+
+                if (Manufacturer.ToLower().Contains("samsung") ||
+                    Manufacturer.ToLower().Contains("xiaomi") ||
+                    Manufacturer.ToLower().Contains("motorola"))
+                    return "Android";
+
+                if (Manufacturer.ToLower().Contains("nintendo"))
+                    return "Nintendo Console";
+
+
                 return "";
             }
         }
 
+        public string Manufacturer {get; private set; }
 
         public Station(ProbePacket InitialProbe)
         {
             this.InitialProbe = InitialProbe;
             this._probes = new List<ProbePacket>();
             this._payloadTraffic = new List<DataFrame>();
+            this.Manufacturer = OuiParser.GetOuiByMac(SourceMacAddress);
         }
 
         internal void AddProbe(ProbePacket probe)

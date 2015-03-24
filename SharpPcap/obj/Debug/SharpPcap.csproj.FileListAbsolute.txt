@@ -14,3 +14,11 @@ C:\Users\AnguisCaptor\Documents\Nas Backup\Main Projects\WiFiSpy\SharpPcap\bin\D
 C:\Users\AnguisCaptor\Documents\Nas Backup\Main Projects\WiFiSpy\SharpPcap\obj\Debug\SharpPcap.csprojResolveAssemblyReference.cache
 C:\Users\AnguisCaptor\Documents\Nas Backup\Main Projects\WiFiSpy\SharpPcap\obj\Debug\SharpPcap.dll
 C:\Users\AnguisCaptor\Documents\Nas Backup\Main Projects\WiFiSpy\SharpPcap\obj\Debug\SharpPcap.pdb
+C:\Users\AnguisCaptor\Documents\GitHub\WiFiSpy\SharpPcap\bin\Debug\SharpPcap.dll
+C:\Users\AnguisCaptor\Documents\GitHub\WiFiSpy\SharpPcap\bin\Debug\SharpPcap.pdb
+C:\Users\AnguisCaptor\Documents\GitHub\WiFiSpy\SharpPcap\bin\Debug\SharpPcap.xml
+C:\Users\AnguisCaptor\Documents\GitHub\WiFiSpy\SharpPcap\bin\Debug\PacketDotNet.dll
+C:\Users\AnguisCaptor\Documents\GitHub\WiFiSpy\SharpPcap\bin\Debug\PacketDotNet.xml
+C:\Users\AnguisCaptor\Documents\GitHub\WiFiSpy\SharpPcap\obj\Debug\SharpPcap.csprojResolveAssemblyReference.cache
+C:\Users\AnguisCaptor\Documents\GitHub\WiFiSpy\SharpPcap\obj\Debug\SharpPcap.dll
+C:\Users\AnguisCaptor\Documents\GitHub\WiFiSpy\SharpPcap\obj\Debug\SharpPcap.pdb

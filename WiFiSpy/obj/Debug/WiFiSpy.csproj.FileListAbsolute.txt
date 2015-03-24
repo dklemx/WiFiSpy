@@ -31,8 +31,8 @@ C:\Users\AnguisCaptor\Documents\GitHub\WiFiSpy\WiFiSpy\bin\Debug\PacketDotNet.dl
 C:\Users\AnguisCaptor\Documents\GitHub\WiFiSpy\WiFiSpy\bin\Debug\SharpPcap.dll
 C:\Users\AnguisCaptor\Documents\GitHub\WiFiSpy\WiFiSpy\bin\Debug\SharpPcap.pdb
 C:\Users\AnguisCaptor\Documents\GitHub\WiFiSpy\WiFiSpy\bin\Debug\SharpPcap.xml
-C:\Users\AnguisCaptor\Documents\GitHub\WiFiSpy\WiFiSpy\obj\Debug\WiFiSpy.csprojResolveAssemblyReference.cache
 C:\Users\AnguisCaptor\Documents\GitHub\WiFiSpy\WiFiSpy\obj\Debug\WiFiSpy.LoadingForm.resources
 C:\Users\AnguisCaptor\Documents\GitHub\WiFiSpy\WiFiSpy\obj\Debug\WiFiSpy.MainForm.resources
 C:\Users\AnguisCaptor\Documents\GitHub\WiFiSpy\WiFiSpy\obj\Debug\WiFiSpy.Properties.Resources.resources
 C:\Users\AnguisCaptor\Documents\GitHub\WiFiSpy\WiFiSpy\obj\Debug\WiFiSpy.csproj.GenerateResource.Cache
+C:\Users\AnguisCaptor\Documents\GitHub\WiFiSpy\WiFiSpy\obj\Debug\WiFiSpy.csprojResolveAssemblyReference.cache
