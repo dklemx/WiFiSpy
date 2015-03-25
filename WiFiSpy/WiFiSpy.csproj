@@ -69,6 +69,9 @@
     <Compile Include="src\AccessPoint.cs" />
     <Compile Include="src\CapFile.cs" />
     <Compile Include="src\CapManager.cs" />
+    <Compile Include="src\GpsLocation.cs" />
+    <Compile Include="src\GpsParsers\GpsCsvParser.cs" />
+    <Compile Include="src\GpsParsers\GpxParser.cs" />
     <Compile Include="src\OuiParser.cs" />
     <Compile Include="src\Packets\BeaconFrame.cs" />
     <Compile Include="src\Packets\DataFrame.cs" />
@@ -104,7 +107,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\Captures\ReadMe.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\GPS\ReadMe.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Data\OUI.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

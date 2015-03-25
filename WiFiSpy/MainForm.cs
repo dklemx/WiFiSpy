@@ -13,6 +13,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using WiFiSpy.src;
+using WiFiSpy.src.GpsParsers;
 using WiFiSpy.src.Packets;
 
 namespace WiFiSpy
@@ -20,12 +21,16 @@ namespace WiFiSpy
     public partial class MainForm : Form
     {
         public List<CapFile> CapFiles { get; private set; }
+        public List<GpsLocation> GpsLocations { get; private set; }
 
         public MainForm()
         {
             InitializeComponent();
             OuiParser.Initialize("./Data/OUI.txt");
             this.CapFiles = new List<CapFile>();
+            this.GpsLocations = new List<GpsLocation>();
+
+            RefreshGpsLocations();
             RefreshAll();
         }
 
@@ -76,6 +81,21 @@ namespace WiFiSpy
             {
                 CapFile capFile = new CapFile(capFilePath);
                 CapFiles.Add(capFile);
+            }
+        }
+
+        private void RefreshGpsLocations()
+        {
+            GpsLocations.Clear();
+
+            foreach (string FilePath in Directory.GetFiles(Environment.CurrentDirectory + "\\Data\\GPS", "*.csv"))
+            {
+                GpsLocations.AddRange(GpsCsvParser.GetLocations(FilePath));
+            }
+
+            foreach (string FilePath in Directory.GetFiles(Environment.CurrentDirectory + "\\Data\\GPS", "*.gpx"))
+            {
+                GpsLocations.AddRange(GpxParser.GetLocations(FilePath));
             }
         }
 
@@ -145,6 +165,8 @@ namespace WiFiSpy
                 }
                 stations = TempStations.ToArray();
             }
+
+
 
             List<ListViewItem> ListItems = new List<ListViewItem>();
             foreach(Station station in stations)

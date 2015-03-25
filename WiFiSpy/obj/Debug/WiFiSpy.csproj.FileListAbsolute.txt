@@ -36,3 +36,4 @@ C:\Users\AnguisCaptor\Documents\GitHub\WiFiSpy\WiFiSpy\obj\Debug\WiFiSpy.MainFor
 C:\Users\AnguisCaptor\Documents\GitHub\WiFiSpy\WiFiSpy\obj\Debug\WiFiSpy.Properties.Resources.resources
 C:\Users\AnguisCaptor\Documents\GitHub\WiFiSpy\WiFiSpy\obj\Debug\WiFiSpy.csproj.GenerateResource.Cache
 C:\Users\AnguisCaptor\Documents\GitHub\WiFiSpy\WiFiSpy\obj\Debug\WiFiSpy.csprojResolveAssemblyReference.cache
+C:\Users\AnguisCaptor\Documents\GitHub\WiFiSpy\WiFiSpy\bin\Debug\Data\GPS\ReadMe.txt
