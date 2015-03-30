@@ -379,8 +379,13 @@ namespace SharpPcap.LibPcap
             // marshal the header
             var pcapHeader = PcapHeader.FromPointer(header);
 
-            var pkt_data = new byte[pcapHeader.CaptureLength];
-            Marshal.Copy(data, pkt_data, 0, (int)pcapHeader.CaptureLength);
+            byte[] pkt_data = new byte[0];
+
+            if (pcapHeader.CaptureLength < 500000)
+            {
+                pkt_data = new byte[pcapHeader.CaptureLength];
+                Marshal.Copy(data, pkt_data, 0, (int)pcapHeader.CaptureLength);
+            }
 
             p = new RawCapture(LinkType,
                                new PosixTimeval(pcapHeader.Seconds,

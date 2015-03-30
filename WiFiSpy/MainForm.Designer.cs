@@ -73,6 +73,8 @@
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -88,8 +90,15 @@
             this.StationHttpLocList = new System.Windows.Forms.ListView();
             this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader16 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader17 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.splitContainer5 = new System.Windows.Forms.SplitContainer();
+            this.LvRepeaterList = new System.Windows.Forms.ListView();
+            this.LvRepeaterNames = new System.Windows.Forms.ListView();
+            this.columnHeader18 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader19 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader20 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader21 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader22 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -122,6 +131,11 @@
             this.tabControl2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            this.tabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
+            this.splitContainer5.Panel1.SuspendLayout();
+            this.splitContainer5.Panel2.SuspendLayout();
+            this.splitContainer5.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -161,6 +175,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 24);
             this.tabControl1.Name = "tabControl1";
@@ -496,6 +511,16 @@
             this.columnHeader13.Text = "Device Type";
             this.columnHeader13.Width = 92;
             // 
+            // columnHeader17
+            // 
+            this.columnHeader17.Text = "Device Version";
+            this.columnHeader17.Width = 92;
+            // 
+            // columnHeader16
+            // 
+            this.columnHeader16.Text = "Last Seen";
+            this.columnHeader16.Width = 120;
+            // 
             // tabControl2
             // 
             this.tabControl2.Controls.Add(this.tabPage4);
@@ -524,7 +549,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1051, 244);
+            this.tabPage3.Size = new System.Drawing.Size(1327, 260);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Traffic";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -544,7 +569,7 @@
             this.StationTrafficList.GridLines = true;
             this.StationTrafficList.Location = new System.Drawing.Point(3, 3);
             this.StationTrafficList.Name = "StationTrafficList";
-            this.StationTrafficList.Size = new System.Drawing.Size(1045, 238);
+            this.StationTrafficList.Size = new System.Drawing.Size(1321, 254);
             this.StationTrafficList.TabIndex = 0;
             this.StationTrafficList.UseCompatibleStateImageBehavior = false;
             this.StationTrafficList.View = System.Windows.Forms.View.Details;
@@ -589,7 +614,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1051, 244);
+            this.tabPage5.Size = new System.Drawing.Size(1327, 260);
             this.tabPage5.TabIndex = 2;
             this.tabPage5.Text = "HTTP Locations";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -604,7 +629,7 @@
             this.StationHttpLocList.GridLines = true;
             this.StationHttpLocList.Location = new System.Drawing.Point(3, 3);
             this.StationHttpLocList.Name = "StationHttpLocList";
-            this.StationHttpLocList.Size = new System.Drawing.Size(1045, 238);
+            this.StationHttpLocList.Size = new System.Drawing.Size(1321, 254);
             this.StationHttpLocList.TabIndex = 0;
             this.StationHttpLocList.UseCompatibleStateImageBehavior = false;
             this.StationHttpLocList.View = System.Windows.Forms.View.Details;
@@ -619,15 +644,90 @@
             this.columnHeader15.Text = "URL";
             this.columnHeader15.Width = 691;
             // 
-            // columnHeader16
+            // tabPage6
             // 
-            this.columnHeader16.Text = "Last Seen";
-            this.columnHeader16.Width = 120;
+            this.tabPage6.Controls.Add(this.splitContainer5);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(1341, 586);
+            this.tabPage6.TabIndex = 2;
+            this.tabPage6.Text = "WiFi Repeaters";
+            this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // columnHeader17
+            // splitContainer5
             // 
-            this.columnHeader17.Text = "Device Version";
-            this.columnHeader17.Width = 92;
+            this.splitContainer5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer5.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer5.Name = "splitContainer5";
+            // 
+            // splitContainer5.Panel1
+            // 
+            this.splitContainer5.Panel1.Controls.Add(this.LvRepeaterNames);
+            // 
+            // splitContainer5.Panel2
+            // 
+            this.splitContainer5.Panel2.Controls.Add(this.LvRepeaterList);
+            this.splitContainer5.Size = new System.Drawing.Size(1335, 580);
+            this.splitContainer5.SplitterDistance = 317;
+            this.splitContainer5.TabIndex = 0;
+            // 
+            // LvRepeaterList
+            // 
+            this.LvRepeaterList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader20,
+            this.columnHeader21,
+            this.columnHeader22});
+            this.LvRepeaterList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LvRepeaterList.FullRowSelect = true;
+            this.LvRepeaterList.GridLines = true;
+            this.LvRepeaterList.Location = new System.Drawing.Point(0, 0);
+            this.LvRepeaterList.Name = "LvRepeaterList";
+            this.LvRepeaterList.Size = new System.Drawing.Size(1014, 580);
+            this.LvRepeaterList.TabIndex = 0;
+            this.LvRepeaterList.UseCompatibleStateImageBehavior = false;
+            this.LvRepeaterList.View = System.Windows.Forms.View.Details;
+            // 
+            // LvRepeaterNames
+            // 
+            this.LvRepeaterNames.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader18,
+            this.columnHeader19});
+            this.LvRepeaterNames.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LvRepeaterNames.FullRowSelect = true;
+            this.LvRepeaterNames.GridLines = true;
+            this.LvRepeaterNames.Location = new System.Drawing.Point(0, 0);
+            this.LvRepeaterNames.Name = "LvRepeaterNames";
+            this.LvRepeaterNames.Size = new System.Drawing.Size(317, 580);
+            this.LvRepeaterNames.TabIndex = 0;
+            this.LvRepeaterNames.UseCompatibleStateImageBehavior = false;
+            this.LvRepeaterNames.View = System.Windows.Forms.View.Details;
+            this.LvRepeaterNames.SelectedIndexChanged += new System.EventHandler(this.LvRepeaterNames_SelectedIndexChanged);
+            // 
+            // columnHeader18
+            // 
+            this.columnHeader18.Text = "SSID";
+            this.columnHeader18.Width = 216;
+            // 
+            // columnHeader19
+            // 
+            this.columnHeader19.Text = "Repeaters";
+            this.columnHeader19.Width = 76;
+            // 
+            // columnHeader20
+            // 
+            this.columnHeader20.Text = "Mac Address";
+            this.columnHeader20.Width = 226;
+            // 
+            // columnHeader21
+            // 
+            this.columnHeader21.Text = "Manufacturer";
+            this.columnHeader21.Width = 262;
+            // 
+            // columnHeader22
+            // 
+            this.columnHeader22.Text = "First Seen At";
+            this.columnHeader22.Width = 145;
             // 
             // MainForm
             // 
@@ -674,6 +774,11 @@
             this.tabControl2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
+            this.tabPage6.ResumeLayout(false);
+            this.splitContainer5.Panel1.ResumeLayout(false);
+            this.splitContainer5.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
+            this.splitContainer5.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -730,6 +835,15 @@
         private System.Windows.Forms.ColumnHeader columnHeader15;
         private System.Windows.Forms.ColumnHeader columnHeader16;
         private System.Windows.Forms.ColumnHeader columnHeader17;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.SplitContainer splitContainer5;
+        private System.Windows.Forms.ListView LvRepeaterNames;
+        private System.Windows.Forms.ColumnHeader columnHeader18;
+        private System.Windows.Forms.ColumnHeader columnHeader19;
+        private System.Windows.Forms.ListView LvRepeaterList;
+        private System.Windows.Forms.ColumnHeader columnHeader20;
+        private System.Windows.Forms.ColumnHeader columnHeader21;
+        private System.Windows.Forms.ColumnHeader columnHeader22;
     }
 }
 

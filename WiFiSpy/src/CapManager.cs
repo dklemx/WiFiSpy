@@ -57,5 +57,42 @@ namespace WiFiSpy.src
 
             return StationMacs.Values.ToArray();
         }
+
+        
+        /// <summary>
+        /// Grab all the Access Points with the same name in the hope these are all extenders
+        /// </summary>
+        /// <param name="CapFiles"></param>
+        /// <returns></returns>
+        public static SortedList<string, List<AccessPoint>> GetPossibleExtenders(CapFile[] CapFiles)
+        {
+            SortedList<string, List<AccessPoint>> AccessPoints = new SortedList<string, List<AccessPoint>>();
+
+            foreach (CapFile capFile in CapFiles)
+            {
+                SortedList<string, AccessPoint[]> PossibleExtenders = capFile.PossibleExtenders;
+
+                for(int i = 0; i < PossibleExtenders.Count; i++)
+                {
+                    if (AccessPoints.ContainsKey(PossibleExtenders.Keys[i]))
+                    {
+                        for (int j = 0; j < PossibleExtenders.Values[i].Length; j++)
+                        {
+                            AccessPoint extender = PossibleExtenders.Values[i][j];
+                            if (AccessPoints[PossibleExtenders.Keys[i]].FirstOrDefault(o => o.MacAddress == extender.MacAddress) == null)
+                            {
+                                AccessPoints[PossibleExtenders.Keys[i]].Add(extender);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        AccessPoints.Add(PossibleExtenders.Keys[i], new List<AccessPoint>(PossibleExtenders.Values[i]));
+                    }
+                }
+            }
+
+            return AccessPoints;
+        }
     }
 }

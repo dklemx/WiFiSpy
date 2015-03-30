@@ -20,6 +20,7 @@ namespace WiFiSpy
     {
         public List<CapFile> CapFiles { get; private set; }
         public List<GpsLocation> GpsLocations { get; private set; }
+        public const string DateTimeFormat = "dd-MM-yyyy HH:mm:ss";
 
         public MainForm()
         {
@@ -28,7 +29,6 @@ namespace WiFiSpy
             this.CapFiles = new List<CapFile>();
             this.GpsLocations = new List<GpsLocation>();
 
-            RefreshGpsLocations();
             RefreshAll();
         }
 
@@ -107,6 +107,29 @@ namespace WiFiSpy
             FillTrafficChart();
 
             FillStationList();
+
+            RefreshGpsLocations();
+
+            FillExtenderList();
+        }
+
+        private void FillExtenderList()
+        {
+            LvRepeaterNames.Items.Clear();
+            LvRepeaterList.Items.Clear();
+
+            SortedList<string, List<AccessPoint>> repeaters = CapManager.GetPossibleExtenders(CapFiles.ToArray());
+
+            for (int i = 0; i < repeaters.Count; i++)
+            {
+                ListViewItem item = new ListViewItem(new string[]
+                {
+                    repeaters.Keys[i],
+                    repeaters.Values[i].Count.ToString()
+                });
+                item.Tag = repeaters.Values[i];
+                LvRepeaterNames.Items.Add(item);
+            }
         }
 
         private void FillStationList()
@@ -176,7 +199,7 @@ namespace WiFiSpy
                     station.ProbeNames,
                     station.DeviceTypeStr,
                     station.DeviceVersion,
-                    station.LastSeenDate.ToString("dd-MM-yyyy HH:mm:ss")
+                    station.LastSeenDate.ToString(DateTimeFormat)
                 });
                 item.Tag = station;
                 //StationList.Items.Add(item);
@@ -430,7 +453,7 @@ namespace WiFiSpy
                     {
                         ListViewItem item = new ListViewItem(new string[]
                         {
-                            frame.TimeStamp.ToString("dd-MM-yyyy HH:mm:ss"),
+                            frame.TimeStamp.ToString(DateTimeFormat),
                             frame.SourceIp,
                             frame.PortSource.ToString(),
                             frame.DestIp,
@@ -446,12 +469,37 @@ namespace WiFiSpy
                         {
                             ListViewItem HttpItem = new ListViewItem(new string[]
                             {
-                                frame.TimeStamp.ToString("dd-MM-yyyy HH:mm:ss"),
+                                frame.TimeStamp.ToString(DateTimeFormat),
                                 HttpLocation
                             });
                             HttpItem.Tag = frame;
                             StationHttpLocList.Items.Add(HttpItem);
                         }
+                    }
+                }
+            }
+        }
+
+        private void LvRepeaterNames_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (LvRepeaterNames.SelectedItems.Count > 0)
+            {
+                LvRepeaterList.Items.Clear();
+
+                List<AccessPoint> Repeaters = LvRepeaterNames.SelectedItems[0].Tag as List<AccessPoint>;
+
+                if (Repeaters != null)
+                {
+                    foreach (AccessPoint AP in Repeaters)
+                    {
+                        ListViewItem item = new ListViewItem(new string[]
+                        {
+                            AP.MacAddress,
+                            AP.Manufacturer,
+                            AP.BeaconFrame.TimeStamp.ToString(DateTimeFormat)
+                        });
+                        item.Tag = AP;
+                        LvRepeaterList.Items.Add(item);
                     }
                 }
             }
