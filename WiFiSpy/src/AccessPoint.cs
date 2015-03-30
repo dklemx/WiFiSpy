@@ -43,6 +43,14 @@ namespace WiFiSpy.src
             }
         }
 
+        public bool WPS_Enabled
+        {
+            get
+            {
+                return BeaconFrame.WPS_Enabled;
+            }
+        }
+
         public AccessPoint(BeaconFrame beaconFrame)
         {
             this.BeaconFrame = beaconFrame;

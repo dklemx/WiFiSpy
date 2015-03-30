@@ -268,7 +268,7 @@ namespace WiFiSpy
             {
                 APCount_Pie += capFile.AccessPoints.Where(o => !o.BeaconFrame.IsHidden).Count();
                 hiddenCount_Pie += capFile.AccessPoints.Where(o => o.BeaconFrame.IsHidden).Count();
-                //WpsEnabledCount_Pie += capFile.AccessPoints.Where(o => o.WPS_Enabled).Count();
+                WpsEnabledCount_Pie += capFile.AccessPoints.Where(o => o.WPS_Enabled).Count();
             }
 
             Series APSerie_Pie = new Series
@@ -285,7 +285,7 @@ namespace WiFiSpy
             hiddenDataPointPie.LegendText = "Hidden Access Points (" + hiddenCount_Pie + ")";
 
             DataPoint WpsEnabledDataPointPie = APSerie_Pie.Points.Add(WpsEnabledCount_Pie);
-            WpsEnabledDataPointPie.LegendText = "WPS Enabled Access Points (" + WpsEnabledCount_Pie + ")";
+            WpsEnabledDataPointPie.LegendText = "WPS Enabled (" + WpsEnabledCount_Pie + ")";
 
 
 

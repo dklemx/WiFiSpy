@@ -27,6 +27,8 @@ namespace WiFiSpy.src.Packets
             }
         }
 
+        public bool WPS_Enabled { get; private set; }
+
         private PacketDotNet.Ieee80211.BeaconFrame Frame;
 
         public BeaconFrame(PacketDotNet.Ieee80211.BeaconFrame frame, DateTime TimeStamp)
@@ -55,6 +57,18 @@ namespace WiFiSpy.src.Packets
                         if (element.Value != null && element.Value.Length >= 3)
                         {
                             Channel = element.Value[2];
+                        }
+                        break;
+                    }
+                    case InformationElement.ElementId.VendorSpecific:
+                    {
+                        //correct me if I was wrong here...
+                        if (element.Bytes.Length > 5)
+                        {
+                            if (element.Bytes[5] == 4)
+                            {
+                                WPS_Enabled = true;
+                            }
                         }
                         break;
                     }

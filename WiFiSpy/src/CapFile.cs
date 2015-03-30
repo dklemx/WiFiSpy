@@ -155,7 +155,7 @@ namespace WiFiSpy.src
                 PacketDotNet.Ieee80211.AssociationRequestFrame AuthFrame2 = packet as PacketDotNet.Ieee80211.AssociationRequestFrame;
 
 
-                PacketDotNet.Ieee80211.DataDataFrame AuthFrame3 = packet as PacketDotNet.Ieee80211.DataDataFrame;
+                PacketDotNet.Ieee80211.DataDataFrame DataDataFrame = packet as PacketDotNet.Ieee80211.DataDataFrame;
 
 
                 if (beacon != null)
@@ -200,7 +200,7 @@ namespace WiFiSpy.src
                         _dataFrames.Add(_dataFrame);
                     }
                 }
-                else if (DeAuthFrame != null)
+                else if (DataDataFrame != null)
                 {
 
                 }
