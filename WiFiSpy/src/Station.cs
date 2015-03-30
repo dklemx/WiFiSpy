@@ -46,6 +46,37 @@ namespace WiFiSpy.src
         }
 
         /// <summary>
+        /// Grab the Local IP Addresses from this station
+        /// </summary>
+        public string[] LocalIpAddresses
+        {
+            get
+            {
+                List<string> IPs = new List<string>();
+                foreach(DataFrame dataFrame in DataFrames)
+                {
+                    if(!String.IsNullOrEmpty(dataFrame.SourceIp) && !String.IsNullOrEmpty(dataFrame.DestIp))
+                    {
+
+                        if(dataFrame.SourceIp == "0.0.0.0" || dataFrame.DestIp == "0.0.0.0" ||
+                           dataFrame.SourceIp == "255.255.255.255" || dataFrame.DestIp == "255.255.255.255")
+                        {
+                            continue;
+                        }
+
+                        if (dataFrame.SourceMacAddressStr == InitialProbe.SourceMacAddressStr)
+                        {
+                            if (!IPs.Contains(dataFrame.SourceIp))
+                                IPs.Add(dataFrame.SourceIp);
+                        }
+                    }
+                }
+
+                return IPs.ToArray();
+            }
+        }
+
+        /// <summary>
         /// The name of the Station that is captured from the DHCP traffic
         /// </summary>
         public string StationName { get; internal set; }

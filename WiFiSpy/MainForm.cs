@@ -190,6 +190,17 @@ namespace WiFiSpy
             List<ListViewItem> ListItems = new List<ListViewItem>();
             foreach(Station station in stations)
             {
+                string IPs = "";
+                string[] IpAddresses = station.LocalIpAddresses;
+
+                for (int i = 0; i < IpAddresses.Length; i++)
+                {
+                    IPs += IpAddresses[i];
+
+                    if (i + 1 < IpAddresses.Length)
+                        IPs += ", ";
+                }
+
                 ListViewItem item = new ListViewItem(new string[]
                 {
                     station.SourceMacAddressStr,
@@ -199,7 +210,8 @@ namespace WiFiSpy
                     station.ProbeNames,
                     station.DeviceTypeStr,
                     station.DeviceVersion,
-                    station.LastSeenDate.ToString(DateTimeFormat)
+                    station.LastSeenDate.ToString(DateTimeFormat),
+                    IPs
                 });
                 item.Tag = station;
                 //StationList.Items.Add(item);
@@ -496,7 +508,8 @@ namespace WiFiSpy
                         {
                             AP.MacAddress,
                             AP.Manufacturer,
-                            AP.BeaconFrame.TimeStamp.ToString(DateTimeFormat)
+                            AP.BeaconFrame.TimeStamp.ToString(DateTimeFormat),
+                            AP.WPS_Enabled.ToString()
                         });
                         item.Tag = AP;
                         LvRepeaterList.Items.Add(item);
