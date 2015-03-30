@@ -14,8 +14,8 @@ namespace WiFiSpy.src.Packets
         public string SSID { get; private set; }
         public bool IsHidden { get; private set; }
         public byte[] MacAddress { get; private set; }
-        public DateTime TimeStamp { get; private set; }
         public int Channel { get; private set; }
+        public DateTime TimeStamp { get; private set; }
 
         public string MacAddressStr
         {
@@ -36,9 +36,9 @@ namespace WiFiSpy.src.Packets
             this.MacAddress = frame.SourceAddress.GetAddressBytes();
             this.TimeStamp = TimeStamp;
 
-            foreach(InformationElement element in frame.InformationElements)
+            foreach (InformationElement element in frame.InformationElements)
             {
-                switch(element.Id)
+                switch (element.Id)
                 {
                     case InformationElement.ElementId.ServiceSetIdentity:
                     {
@@ -52,7 +52,7 @@ namespace WiFiSpy.src.Packets
                     }
                     case InformationElement.ElementId.DsParameterSet:
                     {
-                        if(element.Value != null && element.Value.Length >= 3)
+                        if (element.Value != null && element.Value.Length >= 3)
                         {
                             Channel = element.Value[2];
                         }

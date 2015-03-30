@@ -2,11 +2,11 @@
 <?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio 12.0\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
 <FxCopReport Version="12.0">
  <Targets>
-  <Target Name="C:\Users\AnguisCaptor\Desktop\PcapDotNet\bin\Debug\PcapDotNet.Base.dll">
+  <Target Name="C:\Users\Anguis\Documents\GitHub\WiFiSpy\PcapDotNet\bin\Debug\PcapDotNet.Base.dll">
    <Modules>
     <Module Name="pcapdotnet.base.dll">
      <Messages>
-      <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Status="Active" Created="2015-03-21 15:40:39Z" FixCategory="NonBreaking">
+      <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Status="Active" Created="2015-03-30 17:36:20Z" FixCategory="NonBreaking">
        <Issue Name="NoStrongName" Certainty="95" Level="CriticalError">Sign 'PcapDotNet.Base.dll' with a strong name key.</Issue>
       </Message>
      </Messages>
@@ -17,8 +17,8 @@
          <Members>
           <Member Name="#Iso88591" Kind="Property" Static="True" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message Id="Iso" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2015-03-21 15:40:39Z" FixCategory="Breaking">
-             <Issue Name="Member" Certainty="75" Level="CriticalWarning" Path="c:\Users\AnguisCaptor\Desktop\PcapDotNet\src\PcapDotNet.Base" File="EncodingExtensions.cs" Line="15">Correct the spelling of 'Iso' in member name 'EncodingExtensions.Iso88591' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
+            <Message Id="Iso" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Active" Created="2015-03-30 17:36:20Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="75" Level="CriticalWarning" Path="c:\Users\Anguis\Documents\GitHub\WiFiSpy\PcapDotNet\src\PcapDotNet.Base" File="EncodingExtensions.cs" Line="15">Correct the spelling of 'Iso' in member name 'EncodingExtensions.Iso88591' or remove it entirely if it represents any sort of Hungarian notation.</Issue>
             </Message>
            </Messages>
           </Member>

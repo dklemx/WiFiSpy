@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -68,14 +69,19 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\AccessPoint.cs" />
     <Compile Include="src\CapFile.cs" />
+    <Compile Include="src\CapFileReader.cs" />
     <Compile Include="src\CapManager.cs" />
+    <Compile Include="src\Enums.cs" />
     <Compile Include="src\GpsLocation.cs" />
     <Compile Include="src\GpsParsers\GpsCsvParser.cs" />
     <Compile Include="src\GpsParsers\GpxParser.cs" />
     <Compile Include="src\OuiParser.cs" />
-    <Compile Include="src\Packets\BeaconFrame.cs" />
     <Compile Include="src\Packets\DataFrame.cs" />
+    <Compile Include="src\Packets\BeaconFrame.cs" />
     <Compile Include="src\Packets\ProbePacket.cs" />
+    <Compile Include="src\PcapHeader.cs" />
+    <Compile Include="src\PcapUnmanagedStructures.cs" />
+    <Compile Include="src\RawData\FrameControlField.cs" />
     <Compile Include="src\Station.cs" />
     <Compile Include="src\UnixTime.cs" />
     <EmbeddedResource Include="LoadingForm.resx">

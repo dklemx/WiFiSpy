@@ -8,9 +8,9 @@ namespace WiFiSpy.src.Packets
     public class DataFrame
     {
         public PacketDotNet.Ieee80211.QosDataFrame Frame { get; private set; }
-        public DateTime TimeStamp { get; private set; }
         private int PayloadOffset;
         private int PayloadLen;
+        public DateTime TimeStamp { get; private set; }
 
         public byte[] SourceMacAddress
         {

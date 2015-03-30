@@ -85,7 +85,7 @@ namespace WiFiSpy.src
 
         public CapFile(string FilePath)
         {
-            ICaptureDevice device = null;
+            /**/ICaptureDevice device = null;
 
             try
             {
@@ -108,6 +108,9 @@ namespace WiFiSpy.src
             device.OnPacketArrival += new PacketArrivalEventHandler(device_OnPacketArrival);
             device.Capture();
             device.Close();
+
+            //CapFileReader reader = new CapFileReader();
+            //reader.ReadCapFile(FilePath);
 
             //link all the DataFrames to the Stations
             foreach (Station station in _stations.Values)
@@ -136,6 +139,11 @@ namespace WiFiSpy.src
         {
             packetsProcessed++;
 
+            if (packetsProcessed == 38)
+            {
+
+            }
+
             if (e.Packet.LinkLayerType == PacketDotNet.LinkLayers.Ieee80211)
             {
                 Packet packet = PacketDotNet.Packet.ParsePacket(e.Packet.LinkLayerType, e.Packet.Data);
@@ -145,7 +153,11 @@ namespace WiFiSpy.src
 
                 PacketDotNet.Ieee80211.DeauthenticationFrame DeAuthFrame = packet as PacketDotNet.Ieee80211.DeauthenticationFrame;
                 PacketDotNet.Ieee80211.AssociationRequestFrame AuthFrame2 = packet as PacketDotNet.Ieee80211.AssociationRequestFrame;
-                
+
+
+                PacketDotNet.Ieee80211.DataDataFrame AuthFrame3 = packet as PacketDotNet.Ieee80211.DataDataFrame;
+
+
                 if (beacon != null)
                 {
                     BeaconFrame beaconFrame = new BeaconFrame(beacon, e.Packet.Timeval.Date);
@@ -183,7 +195,7 @@ namespace WiFiSpy.src
                     DataFrame _dataFrame = new Packets.DataFrame(DataFrame, e.Packet.Timeval.Date);
 
                     //invalid packets are useless, probably encrypted
-                    if(_dataFrame.IsValidPacket)
+                    if (_dataFrame.IsValidPacket)
                     {
                         _dataFrames.Add(_dataFrame);
                     }

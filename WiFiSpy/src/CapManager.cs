@@ -31,6 +31,8 @@ namespace WiFiSpy.src
                         {
                             Station _station = StationMacs[station.SourceMacAddressStr];
 
+                            //merge the data from this point...
+
                             //copy the probes from other cap files
                             foreach (ProbePacket probe in station.Probes)
                             {

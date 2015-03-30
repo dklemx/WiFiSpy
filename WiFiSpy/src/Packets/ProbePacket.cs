@@ -9,6 +9,8 @@ namespace WiFiSpy.src.Packets
     public class ProbePacket
     {
         public PacketDotNet.Ieee80211.ProbeRequestFrame ProbeRequestFrame { get; private set; }
+        public DateTime TimeStamp { get; private set; }
+
         public byte[] SourceMacAddress
         {
             get
@@ -39,8 +41,6 @@ namespace WiFiSpy.src.Packets
         }
 
         public string VendorSpecificManufacturer { get; private set; }
-
-        public DateTime TimeStamp { get; private set; }
 
         public string SSID { get; private set; }
         public bool IsHidden { get; private set; }

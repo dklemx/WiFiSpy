@@ -46,6 +46,8 @@ Temporary Items
 *.cap
 *.exe
 *.pdb
+*.pdb
 *.csv
 *.gpx
 *.kml
+*.cache

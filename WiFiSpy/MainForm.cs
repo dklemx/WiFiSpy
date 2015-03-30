@@ -1,6 +1,4 @@
 ﻿using PacketDotNet.Ieee80211;
-using SharpPcap;
-using SharpPcap.LibPcap;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -166,8 +164,6 @@ namespace WiFiSpy
                 stations = TempStations.ToArray();
             }
 
-
-
             List<ListViewItem> ListItems = new List<ListViewItem>();
             foreach(Station station in stations)
             {
@@ -242,12 +238,14 @@ namespace WiFiSpy
             APInfoPieChart.Series.Clear();
 
             int APCount_Pie = 0;
-            int hiddenCOunt_Pie = 0;
+            int hiddenCount_Pie = 0;
+            int WpsEnabledCount_Pie = 0;
 
             foreach (CapFile capFile in CapFiles)
             {
                 APCount_Pie += capFile.AccessPoints.Where(o => !o.BeaconFrame.IsHidden).Count();
-                hiddenCOunt_Pie += capFile.AccessPoints.Where(o => o.BeaconFrame.IsHidden).Count();
+                hiddenCount_Pie += capFile.AccessPoints.Where(o => o.BeaconFrame.IsHidden).Count();
+                //WpsEnabledCount_Pie += capFile.AccessPoints.Where(o => o.WPS_Enabled).Count();
             }
 
             Series APSerie_Pie = new Series
@@ -260,8 +258,11 @@ namespace WiFiSpy
             DataPoint DataPointPie = APSerie_Pie.Points.Add(APCount_Pie);
             DataPointPie.LegendText = "Access Points (" + APCount_Pie + ")";
 
-            DataPoint hiddenDataPointPie = APSerie_Pie.Points.Add(hiddenCOunt_Pie);
-            hiddenDataPointPie.LegendText = "Hidden Access Points (" + hiddenCOunt_Pie + ")";
+            DataPoint hiddenDataPointPie = APSerie_Pie.Points.Add(hiddenCount_Pie);
+            hiddenDataPointPie.LegendText = "Hidden Access Points (" + hiddenCount_Pie + ")";
+
+            DataPoint WpsEnabledDataPointPie = APSerie_Pie.Points.Add(WpsEnabledCount_Pie);
+            WpsEnabledDataPointPie.LegendText = "WPS Enabled Access Points (" + WpsEnabledCount_Pie + ")";
 
 
 
